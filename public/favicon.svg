@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- A simple storage box: the "bhandar" (storehouse) -->
+  <rect width="64" height="64" rx="14" fill="#c2410c"/>
+  <path d="M14 24 32 15l18 9v20L32 53 14 44Z" fill="#fff7ed"/>
+  <path d="M14 24l18 9 18-9M32 33v20" fill="none" stroke="#c2410c" stroke-width="3" stroke-linejoin="round"/>
+</svg>

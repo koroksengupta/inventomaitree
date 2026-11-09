@@ -1,0 +1,9 @@
+/* Tailwind CSS: utility classes like `p-4` or `text-lg` used throughout the app.
+   Dark mode follows the phone/computer setting automatically (`dark:` classes). */
+@import "tailwindcss";
+
+body {
+  @apply bg-stone-50 text-stone-900 dark:bg-stone-950 dark:text-stone-100;
+  /* Avoid the grey flash when tapping links on phones */
+  -webkit-tap-highlight-color: transparent;
+}

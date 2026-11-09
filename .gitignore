@@ -1,0 +1,20 @@
+# Dependencies and build output (re-created by `npm install` / `npm run build`)
+node_modules
+dist
+dist-ssr
+
+# SECRETS: never commit environment files. Only the placeholder file is allowed.
+.env*
+!.env.example
+*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor / OS files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.sw?
