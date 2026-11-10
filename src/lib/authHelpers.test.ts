@@ -39,6 +39,10 @@ describe('friendlyAuthError', () => {
     expect(friendlyAuthError('Email rate limit exceeded', 429)).toMatch(/last hour/)
     expect(friendlyAuthError('For security purposes, you can only request this after 42 seconds.', 429)).toMatch(/wait a minute/)
   })
+  it('explains a failed email send (SMTP settings problem)', () => {
+    expect(friendlyAuthError('Error sending magic link email', 500)).toMatch(/email settings/)
+    expect(friendlyAuthError('Error sending confirmation email', 500)).toMatch(/email settings/)
+  })
   it('explains expired codes', () => {
     expect(friendlyAuthError('Token has expired or is invalid', 403)).toMatch(/expired/)
   })

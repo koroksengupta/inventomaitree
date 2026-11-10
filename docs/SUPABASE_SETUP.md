@@ -22,6 +22,8 @@ people to the Site URL instead.
 
 ## B. Put the 6-digit code into the login emails (Email Templates)
 
+> On new free projects the templates are **locked until custom SMTP (part E) is set up**. Do part E first.
+
 The app lets people type a code from the email, which works even when the email opens in a
 different browser or app (common on phones, and needed for the app installed on an iPhone home screen).
 The default emails don't show the code, so add it.
@@ -98,8 +100,19 @@ A free email provider fixes that.
    | Username | the Login from step 3 |
    | Password | the SMTP key from step 3 |
    **Save**.
-   Note: emails sent "from" a Gmail address via another service land in spam more often.
-   Tell members to check spam the first time and mark it "not spam".
+   Notes:
+   - The **Login** is NOT your Gmail; it ends in `@smtp-brevo.com`.
+   - The SMTP key starts with `xsmtpsib-`. A key starting with `xkeysib-` is an API key and will not work.
+   - With a free sender address (Gmail), Brevo may replace the "from" address with one of its own
+     (e.g. `...@brevosend.com`); the sender name still shows. Fine for testing; switch to a domain later.
+   - Emails sent "from" a Gmail address via another service land in spam more often.
+     Tell members to check spam the first time and mark it "not spam".
+
+### If the app says "The login email could not be sent"
+Supabase could not hand the email to the provider. The exact reason is in
+Supabase → **Logs** → **Auth** (newest error line), e.g. `535 Authentication failed` (wrong
+username/key), `sender not valid` (sender not verified), or "account not activated" (contact the
+provider's support). Also check the provider's own logs (Brevo: **Transactional → Logs**).
 
 ### After either option
 **Authentication** → **Rate Limits**: raise **Rate limit for sending emails** to e.g. `30` per hour.

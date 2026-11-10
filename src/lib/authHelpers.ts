@@ -31,6 +31,10 @@ export function friendlyAuthError(message: string, status?: number): string {
   if (m.includes('database error') || m.includes('allowlist')) {
     return "This email hasn't been invited. Ask a committee admin."
   }
+  // Supabase could not hand the email to our email provider (SMTP settings).
+  if (m.includes('error sending')) {
+    return 'The login email could not be sent. This is a problem with the email settings, not with you. Please tell a committee admin.'
+  }
   if (m.includes('email rate limit')) {
     return 'Too many login emails were sent in the last hour. Please try again later, or ask an admin.'
   }
